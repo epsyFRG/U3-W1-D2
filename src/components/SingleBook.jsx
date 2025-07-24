@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Card } from "react-bootstrap"
+import CommentArea from "./CommentArea"
 
 class SingleBook extends Component {
   state = {
@@ -26,6 +27,11 @@ class SingleBook extends Component {
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
         </Card.Body>
+        {selected && (
+          <div onClick={(e) => e.stopPropagation()}>
+            <CommentArea book={book} />
+          </div>
+        )}
       </Card>
     )
   }
